@@ -1,5 +1,5 @@
 import logging
-from flask import request, jsonify
+from flask import request, jsonify, redirect, url_for
 from app.restplus import api
 from flask_restplus import Resource, cors
 from app.utils.serializers import email_args
@@ -33,7 +33,8 @@ class InboxEmail(Resource):
 
             response = jsonify({"msg": response_message, "code": 200})
             response.status_code = response_code
-            return response
+
+            return redirect('/')
         except Exception as err:
             logging.error(err)
             response_message = "Email wasn't sending correctly :("
