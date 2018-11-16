@@ -1,8 +1,6 @@
-from app.restplus import api
-from flask_restplus import fields
+from flask_restplus import reqparse
 
-email_args = api.model('email_args', {
-    'username': fields.String(required=True, description='username'),
-    'body': fields.String(required=True, description='body'),
-    'email': fields.String(required=True, description='email')
-})
+email_args= reqparse.RequestParser()
+email_args.add_argument('name', type=str, required=True, help='name')
+email_args.add_argument('message', type=str, required=True, help='message')
+email_args.add_argument('email', type=str, required=True, help='email')

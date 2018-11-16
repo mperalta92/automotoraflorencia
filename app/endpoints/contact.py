@@ -20,9 +20,10 @@ class InboxEmail(Resource):
 
         return 200 if en email was sent to user
         '''
-        args = request.json
-        client_username = args.get('username')
-        client_message = args.get('body')
+
+        args = request.args
+        client_username = args.get('name')
+        client_message = args.get('message')
         client_email = args.get('email')
 
         try:
