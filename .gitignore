@@ -1,0 +1,6 @@
+# ignore virtualenv
+venv/*
+
+# proyect files
+
+.idea/*
